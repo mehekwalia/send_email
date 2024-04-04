@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Russekort Simulator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #ffddee;
+        color: #000;
+        padding: 20px;
+      }
+      #russekort {
+        display: none;
+        margin-top: 20px;
+      }
+      #russekort-container {
+        width: 95mm;
+        height: 55mm;
+        border: 2px solid #000;
+        border-radius: 5px;
+        padding: 5mm;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+      }
+      #russekort-left,
+      #russekort-right {
+        flex: 1;
+        text-align: left;
+      }
+      #russekort h2 {
+        margin-top: 0;
+        font-size: 18px;
+        color: #000;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      #russekort p {
+        font-size: 14px;
+        margin: 5px 0;
+      }
+      #russekort img {
+        max-width: 50%;
+        height: auto;
+        border-radius: 5px;
+        margin: 0 auto;
+        display: block;
+      }
+      button {
+        background-color: #000;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Russekort Simulator</h1>
+    <form id="russekortForm">
+      <label for="school">Skole:</label>
+      <input type="text" id="school" name="school" required /><br />
+      <label for="name">Navn:</label>
+      <input type="text" id="name" name="name" required /><br />
+      <label for="address">Adresse:</label>
+      <input type="text" id="address" name="address" required /><br />
+      <label for="phone">Telefon:</label>
+      <input type="text" id="phone" name="phone" required /><br />
+      <label>Farge:</label>
+      <input type="radio" id="red" name="color" value="red" checked />
+      <label for="red">Rød</label>
+      <input type="radio" id="green" name="color" value="green" />
+      <label for="green">Grønn</label>
+      <input type="radio" id="blue" name="color" value="blue" />
+      <label for="blue">Blå</label>
+      <br />
+      <label for="quote">Sitat:</label>
+      <input type="text" id="quote" name="quote" required /><br />
+      <label for="image">Bilde:</label>
+      <select id="image" name="image">
+        <option value="Julie1.jpg">Julie1</option>
+        <option value="Julie2.jpg">Julie2</option>
+        <option value="Nerd.jpg">Nerd</option></select
+      ><br />
+      <button type="button" id="generateButton">Generer Russekort</button>
+    </form>
+    <div id="russekort"></div>
+    <script>
+
+
+
+document.getElementById('generateButton').addEventListener('click', function() {
+  const school = document.getElementById('school').value;
+  const name = document.getElementById('name').value;
+  const address = document.getElementById('address').value;
+  const phone = document.getElementById('phone').value;
+  const color = document.querySelector('input[name="color"]:checked').value;
+  const quote = document.getElementById('quote').value;
+  const image = document.getElementById('image').value;
+  const russekortText = `
+    <div id="russekort-container">
+      <div id="russekort-left">
+        <img src="${image}" alt="Russekortbilde">
+      </div>
+      <div id="russekort-right">
+        <h2>RT2024</h2> <!-- Endret her fra "Russekort" til "RT2024" -->
+        <p><strong>Skole:</strong> ${school}</p>
+        <p><strong>Navn:</strong> ${name}</p>
+        <p><strong>Adresse:</strong> ${address}</p>
+        <p><strong>Telefon:</strong> ${phone}</p>
+        <p><strong>Sitat:</strong> "${quote}"</p>
+      </div>
+    </div>`;
+  document.getElementById('russekort').innerHTML = russekortText;
+  document.getElementById('russekort').style.display = 'block';
+  document.getElementById('russekort-container').style.backgroundImage = `radial-gradient(farthest-corner at 50% 50%, white, ${color})`;
+});
+
+    </script>
+  </body>
+</html>

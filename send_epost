@@ -1,0 +1,12 @@
+<body>
+
+    <form action="https://formsubmit.co/your@email.com" method="POST">
+        <input placholder="navn" type="text" name="name" required>
+        <input placholder="e-post" type="email" name="email" required>
+        <textarea name="malding" id=""></textarea>
+        <input type="hidden" name="_captcha" value="false">
+        <input type="submit">
+    </form>
+
+
+</body>

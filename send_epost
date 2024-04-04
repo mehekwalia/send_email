@@ -1,6 +1,6 @@
 <body>
 
-    <form action="https://formsubmit.co/your@email.com" method="POST">
+    <form action="https://formsubmit.co/mehekwalia@email.com" method="POST">
         <input placholder="navn" type="text" name="name" required>
         <input placholder="e-post" type="email" name="email" required>
         <textarea name="malding" id=""></textarea>
